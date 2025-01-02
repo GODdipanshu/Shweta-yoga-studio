@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shweta Serene Yoga Studio</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000; /* Black background */
+            color: #ddd; /* Light grey text */
+            text-align: center;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #0f0, #006400); /* Green gradient */
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transform: translateY(-100%); /* Initially hide the header */
+            animation: slideDown 1s ease-out forwards; /* Slide down animation */
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Container */
+        .container {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #32cd32; /* Lime Green */
+            margin-bottom: 10px;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 1rem;
+            color: #fff;
+            background: linear-gradient(90deg, #32cd32, #006400);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s, background 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background: linear-gradient(90deg, #006400, #32cd32);
+            transform: scale(1.1);
+        }
+
+        /* Know More Button Animation */
+        .know-more {
+            margin: 20px auto;
+            background: linear-gradient(90deg, red, yellow, green, blue, purple);
+            background-size: 400% 400%;
+            animation: colorChange 60s infinite; /* Faster color change duration (60s) */
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 50% 100%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background-color: #111;
+            color: #666;
+            font-size: 0.9rem;
+            transition: opacity 0.5s ease;
+        }
+
+        footer a {
+            color: #32cd32;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Pop-Up Zoom Animation */
+        .about-page {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background: #222;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.5s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Zoom-Out Animation */
+        @keyframes zoomOut {
+            from {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Close Button */
+        .close-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #555;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: #777;
+        }
+
+        /* Slide Down Animation */
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%); /* Start above the screen */
+            }
+            100% {
+                transform: translateY(0); /* End at its normal position */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shweta Serene Yoga Studio</h1>
+        <p>Find your inner peace and strength with us.</p>
+    </header>
+
+    <div class="container">
+        <h2>About Us</h2>
+        <p>Welcome to Shweta Serene Yoga Studio, where we combine traditional yoga practices with modern techniques to bring you the best of both worlds.</p>
+
+        <a href="https://youtube.com/@shweetaofficial56?si=4GSeY_yqv4I8QIWP" target="_blank" class="button" onclick="smoothJoinClick()">Join Now</a>
+        <button class="button know-more" onclick="openAboutPage()">Know More</button>
+    </div>
+
+    <footer id="contact">
+        <p>Contact us at: <a href="mailto:shwetadeepak99@gmail.com" id="email-link" onclick="emailError()">shwetadeepak99@gmail.com</a></p>
+        <p>&copy; 2025 Shweta Serene Yoga Studio. All Rights Reserved.</p>
+    </footer>
+
+    <!-- About Page Pop-Up -->
+    <div id="about-page" class="about-page">
+        <h2>About Me</h2>
+        <p>Hello! I'm Shweta Shukla, a certified yoga instructor. I specialize in helping people achieve mental peace and physical fitness through yoga.</p>
+        <p>Email: shwetadeepak99@gmail.com</p>
+        <p>Location: Rohini Sector-11</p>
+        <button class="close-button" onclick="closeAboutPage()">Close</button>
+    </div>
+
+    <script>
+        function smoothJoinClick() {
+            document.body.style.transition = 'background-color 0.3s ease';
+            setTimeout(function() {
+                window.location.href = 'https://youtube.com/@shweetaofficial56?si=4GSeY_yqv4I8QIWP';
+            }, 200); // Short delay before redirecting for smoothness
+        }
+
+        function openAboutPage() {
+            document.getElementById('about-page').style.display = 'block';
+            // Use a smoother approach with requestAnimationFrame for dynamic performance improvement
+            requestAnimationFrame(function() {
+                document.getElementById('about-page').style.animation = 'zoomIn 0.5s ease-out forwards';
+            });
+        }
+
+        function closeAboutPage() {
+            var aboutPage = document.getElementById('about-page');
+            aboutPage.style.animation = 'zoomOut 0.5s ease-out forwards';
+            setTimeout(function() {
+                aboutPage.style.display = 'none';
+            }, 500); // Wait for the zoom-out animation to finish
+        }
+
+        function emailError() {
+            alert("Error: No email client found on this device.");
+        }
+    </script>
+</body>
+</html>
