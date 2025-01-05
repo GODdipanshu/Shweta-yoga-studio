@@ -7,7 +7,6 @@
     <meta name="keywords" content="Yoga, Yoga Studio, Online Yoga, Wellness, Health">
     <title>Divine flow yoga</title>
     
-
     <style>
         /* General Styles */
         body {
@@ -292,6 +291,26 @@
             <button class="faq-toggle" onclick="toggleFAQ(3)">Is there a free trial?</button>
             <div class="faq-answer">Yes, we offer a 1-day free trial for new students to try out our yoga classes.</div>
         </div>
+        <div class="faq-item">
+            <button class="faq-toggle" onclick="toggleFAQ(4)">Do I need to have prior yoga experience?</button>
+            <div class="faq-answer">No, we welcome all skill levels. We offer classes for beginners and experienced practitioners alike.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-toggle" onclick="toggleFAQ(5)">What if I miss a class?</button>
+            <div class="faq-answer">We offer recordings of the sessions so you can catch up on missed classes at your convenience.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-toggle" onclick="toggleFAQ(6)">How long are the classes?</button>
+            <div class="faq-answer">Our classes range from 1 hour to 1.5 hours, depending on the type of class.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-toggle" onclick="toggleFAQ(7)">Can I attend a class online?</button>
+            <div class="faq-answer">Yes, we offer online classes through video calls for those who cannot attend in person.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-toggle" onclick="toggleFAQ(8)">Is there a discount for long-term plans?</button>
+            <div class="faq-answer">Yes, we offer discounted rates for 6-month and 1-year subscription plans.</div>
+        </div>
     </div>
 
     <footer>
@@ -301,8 +320,11 @@
     <script>
         // Toggle FAQ Answer
         function toggleFAQ(index) {
-            var answer = document.querySelectorAll('.faq-answer')[index - 1];
-            answer.classList.toggle('active');
+            const toggleButton = document.querySelectorAll('.faq-toggle')[index - 1];
+            const answer = document.querySelectorAll('.faq-answer')[index - 1];
+            
+            toggleButton.classList.toggle('active');
+            answer.style.display = (answer.style.display === "block") ? "none" : "block";
         }
 
         // Open Subscription Form
@@ -314,9 +336,7 @@
         // Close Subscription Form
         function closeSubscriptionForm() {
             document.getElementById('subscription-form').style.animation = 'zoomOut 0.3s forwards';
-            setTimeout(function() {
-                document.getElementById('subscription-form').style.display = 'none';
-            }, 300); // Wait for animation to finish before hiding
+            setTimeout(() => { document.getElementById('subscription-form').style.display = 'none'; }, 300);
         }
 
         // Open About Popup
@@ -328,12 +348,8 @@
         // Close About Popup
         function closeAboutPopup() {
             document.getElementById('about-popup').style.animation = 'zoomOut 0.3s forwards';
-            setTimeout(function() {
-                document.getElementById('about-popup').style.display = 'none';
-            }, 300); // Wait for animation to finish before hiding
+            setTimeout(() => { document.getElementById('about-popup').style.display = 'none'; }, 300);
         }
-
-        
+    </script>
 </body>
-            </html>
-            
+</html>
